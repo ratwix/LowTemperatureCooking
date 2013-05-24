@@ -21,7 +21,7 @@
 #define PIN_SCREEN_RST    23
 #define DELAY_REFRESH_SCREEN  100
 #define DELAY_MENU_TIMEOUT    20000
-#define DELAY_SCROLL          250
+#define DELAY_SCROLL          200
 #define DELAY_SCROLL_DELAY    4
 
 Adafruit_PCD8544 display = Adafruit_PCD8544(PIN_SCREEN_SCLK, PIN_SCREEN_DIN, PIN_SCREEN_DC, PIN_SCREEN_CS, PIN_SCREEN_RST);
@@ -40,6 +40,7 @@ int scroll_max = 0;
 
 #define DS18B20     0x28     // Adresse 1-Wire du DS18B20
 #define PIN_DS18B20 16       // Pin used for temp 1-Wire
+#define PIN_HEAT    3        // Pin connected to HEAT system (PWM)
 
 OneWire ds(PIN_DS18B20);
 
@@ -81,6 +82,8 @@ Bounce buttonMenu = Bounce(PIN_BUTTON_MENU, 10);
 
 void setup()   {
   Serial.begin(9600);
+  
+  pinMode(PIN_HEAT, OUTPUT);
   
   pinMode(PIN_BUTTON_RESET_TIMER, INPUT_PULLUP);
   pinMode(PIN_BUTTON_MENU, INPUT_PULLUP);
@@ -233,13 +236,19 @@ void readRotaryEncoder() {
   ***********************************************************************************/
 
 /**
-  * Read Temperature
+  * Read Temperature.
+  * If temperature < target, heat, else stno
   */
 
 void refreshTemp() {
   if (time_refreshTemperature > DELAY_REFRESH_TEMP) {
       time_refreshTemperature -= DELAY_REFRESH_TEMP;
       getTemperature(&g_current_temp);
+      if (g_current_temp < g_target_temp) {
+        digitalWrite(PIN_HEAT, HIGH);        //TURN HEAT ON
+      } else {
+        digitalWrite(PIN_HEAT, LOW);         //TURN HEAT OFF
+      }
   }
 }
 
@@ -371,7 +380,7 @@ void scroll_text(const char* label) {
   Serial.print(label_size);
   Serial.print(':');
   if (label_size > SCREEN_NB_COLUMN_MENU) {
-    scroll_max = -((label_size - SCREEN_NB_COLUMN_MENU) * (SCREEN_CHAR_LENGTH + 1));
+    scroll_max = -((label_size - SCREEN_NB_COLUMN_MENU) * (SCREEN_CHAR_LENGTH + 2));
     Serial.print(getMenuScroll());
     Serial.print(':');
     Serial.println(scroll_max);
@@ -523,9 +532,13 @@ int menu_size = get_menu3_size(g_current_menu_1, g_current_menu_2);
       int th = m / 60;
       
       if (th > 0) {
-        sprintf(t2, "%dh%dmin", th, tm); 
+        if (tm > 0) {
+          sprintf(t2, "%dh%dm", th, tm); 
+        } else {
+          sprintf(t2, "%dh", th); 
+        }
       } else {
-        sprintf(t2, "%02dmin", tm); 
+        sprintf(t2, "%dmin", tm); 
       }
       display.setCursor(0, 40);
       display.setTextSize(1);

@@ -33,6 +33,38 @@ typedef struct  { //First menu level
 static const s_menu_1  temperature[] = 
   {
     {"Viande Tendre", {
+                  {"Agneau Carre", 
+                    {
+                      {"Saignant", 54, false},
+                      {"A point",  57, true},
+                      {"Rose",  59, true},
+                      {"Cuit", 62, false}
+                    }
+                  },
+                  {"Agneau Gigot", 
+                    {
+                      {"Saignant", 54, false},
+                      {"A point",  57, false},
+                      {"Rose",  60, true},
+                      {"Cuit", 65, false}
+                    }
+                  },
+                  {"Boeuf Aloyau", 
+                    {
+                      {"Saignant", 52, false},
+                      {"A point",  54, true},
+                      {"Rose",  58, false},
+                      {"Cuit", 60, false}
+                    }
+                  },
+                  {"Boeuf Cotes", 
+                    {
+                      {"Saignant", 54, false},
+                      {"A point",  56, true},
+                      {"Rose",  58, false},
+                      {"Cuit", 60, false}
+                    }
+                  },
                   {"Boeuf Filet Mignon", 
                     {
                       {"Saignant", 50, true},
@@ -57,46 +89,6 @@ static const s_menu_1  temperature[] =
                       {"Cuit", 60, false}
                     }
                   },
-                  {"Boeuf Cotes", 
-                    {
-                      {"Saignant", 54, false},
-                      {"A point",  56, true},
-                      {"Rose",  58, false},
-                      {"Cuit", 60, false}
-                    }
-                  },
-                  {"Boeuf Aloyau", 
-                    {
-                      {"Saignant", 52, false},
-                      {"A point",  54, true},
-                      {"Rose",  58, false},
-                      {"Cuit", 60, false}
-                    }
-                  },
-                  {"Agneau Gigot", 
-                    {
-                      {"Saignant", 54, false},
-                      {"A point",  57, false},
-                      {"Rose",  60, true},
-                      {"Cuit", 65, false}
-                    }
-                  },
-                  {"Agneau Carre", 
-                    {
-                      {"Saignant", 54, false},
-                      {"A point",  57, true},
-                      {"Rose",  59, true},
-                      {"Cuit", 62, false}
-                    }
-                  },
-                  {"Veau Longe", 
-                    {
-                      {"Saignant", 52, true},
-                      {"A point",  54, true},
-                      {"Rose",  56, true},
-                      {"Cuit", 60, true}
-                    }
-                  },
                   {"Chevreuil Longue", 
                     {
                       {"Saignant", 50, true},
@@ -105,10 +97,17 @@ static const s_menu_1  temperature[] =
                       {"Cuit", 60, false}
                     }
                   },
-                  {"Porc Longe", 
+                  {"Cochon de lait", 
                     {
-                      {"A point",  58, false},
-                      {"Rose",  60, true},
+                      {"A point",  56, true},
+                      {"Rose",  58, true},
+                      {"Cuit", 60, true}
+                    }
+                  },
+                  {"Lapin Filet", 
+                    {
+                      {"A point",  56, false},
+                      {"Rose",  59, true},
                       {"Cuit", 62, false}
                     }
                   },
@@ -119,6 +118,13 @@ static const s_menu_1  temperature[] =
                       {"Cuit", 61, false}
                     }
                   },
+                  {"Porc Longe", 
+                    {
+                      {"A point",  58, false},
+                      {"Rose",  60, true},
+                      {"Cuit", 62, false}
+                    }
+                  },
                   {"Porc Palette", 
                     {
                       {"A point",  58, false},
@@ -126,44 +132,173 @@ static const s_menu_1  temperature[] =
                       {"Cuit", 64, false}
                     }
                   },
-                  {"Lapin Filet", 
+                  {"Veau Longe", 
                     {
-                      {"A point",  56, false},
-                      {"Rose",  59, true},
-                      {"Cuit", 62, false}
-                    }
-                  },
-                  {"Cochon de lait", 
-                    {
-                      {"A point",  56, true},
-                      {"Rose",  58, true},
+                      {"Saignant", 52, true},
+                      {"A point",  54, true},
+                      {"Rose",  56, true},
                       {"Cuit", 60, true}
                     }
                   }
                 }
     },
     {"Viande Ferme", {
+                        {"Agneau epaule", 
+                          {
+                            {"Ferme (steak)", 56, true, 48 * 60},
+                            {"Tendre souple",  62, false, 48 * 60},
+                            {"Tendre defait",  65, true, 24  * 60},
+                            {"Tres defait",  85, false, 5 * 60}
+                          }
+                        },
+                        {"Agneau jaret", 
+                          {
+                            {"Ferme (steak)", 58, false, 48 * 60},
+                            {"Tendre souple",  62, true, 48 * 60},
+                            {"Tendre defait",  85, false, 5  * 60},
+                            {"Tres defait",  88, false, 5 * 60}
+                          }
+                        },
+                        {"Boeuf bavette", 
+                          {
+                            {"Ferme (steak)", 50, false, 3 * 60},
+                            {"Tendre souple",  55, true, 12 * 60},
+                            {"Tendre defait",  62, false, 36  * 60},
+                            {"Tres defait",  88, false, 7 * 60}
+                          }
+                        },
+                        {"Boeuf cote avec os", 
+                          {
+                            {"Ferme (steak)", 56, false, 72 * 60},
+                            {"Tendre souple",  58, false, 72 * 60},
+                            {"Tendre defait",  60, true, 72  * 60},
+                            {"Tres defait",  88, false, 7 * 60}
+                          }
+                        },
+                        {"Boeuf joue", 
+                          {
+                            {"Ferme (steak)", 58, false, 72 * 60},
+                            {"Tendre souple",  62, true, 72 * 60},
+                            {"Tendre defait",  68, false, 36  * 60},
+                            {"Tres defait",  80, false, 12 * 60}
+                          }
+                        },
+                        {"Boeuf onglet", 
+                          {
+                            {"Ferme (steak)", 50, true, 2 * 60},
+                            {"Tendre souple",  55, false, 12 * 60},
+                            {"Tendre defait",  62, false, 36  * 60},
+                            {"Tres defait",  88, false, 6 * 60}
+                          }
+                        },
+                        {"Boeuf palette", 
+                          {
+                            {"Ferme (steak)", 52, false, 24 * 60},
+                            {"Tendre souple",  55, true, 12 * 60},
+                            {"Tendre defait",  62, false, 48  * 60},
+                            {"Tres defait",  88, false, 5 * 60}
+                          }
+                        },
+                        {"Boeuf poitrine", 
+                          {
+                            {"Ferme (steak)", 58, false, 72 * 60},
+                            {"Tendre souple",  60, false, 72 * 60},
+                            {"Tendre defait",  63, true, 72  * 12},
+                            {"Tres defait",  70, false, 72 * 60}
+                          }
+                        },
+                        {"Boeuf queue", 
+                          {
+                            {"Tendre souple",  60, true, 100 * 60},
+                            {"Tendre defait",  65, false, 48  * 60},
+                            {"Tres defait",  70, false, 24 * 60}
+                          }
+                        },
+                        {"Cochon lait cuisse", 
+                          {
+                            {"Tendre souple",  60, false, 36 * 60},
+                            {"Tendre defait",  65, true, 24  * 60},
+                            {"Tres defait",  80, false, 8 * 60}
+                          }
+                        },
+                        {"Lapin epaule", 
+                          {
+                            {"Tendre souple",  60, false, 4 * 60},
+                            {"Tendre defait",  66, true, 1  * 60},
+                            {"Tres defait",  85, false, 1 * 60}
+                          }
+                        },
+                        {"Porc cote", 
+                          {
+                            {"Tendre souple",  60, true, 48 * 60},
+                            {"Tendre defait",  65, false, 48  * 60},
+                            {"Tres defait",  75, false, 7 * 60}
+                          }
+                        },
+                        {"Porc epaule jambon", 
+                          {
+                            {"Ferme (steak)", 54, false, 48 * 60},
+                            {"Tendre souple",  60, false, 72 * 60},
+                            {"Tendre defait",  65, true, 36  * 60},
+                            {"Tres defait",  84, false, 4 * 60}
+                          }
+                        },
+                        {"Porc jarret pied", 
+                          {
+                            {"Tres defait",  85, false, 85 * 60}
+                          }
+                        },
+                        {"Porc joue", 
+                          {
+                            {"Tendre souple",  65, true, 38 * 60},
+                            {"Tendre defait",  68, false, 48  * 60},
+                            {"Tres defait",  85, false, 5 * 60}
+                          }
+                        },
+                        {"Porc poitrine", 
+                          {
+                            {"Ferme (steak)", 60, true, 72 * 60},
+                            {"Tendre souple",  65, true, 36 * 60},
+                            {"Tendre defait",  70, false, 18  * 60},
+                            {"Tres defait",  88, false, 8 * 60}
+                          }
+                        },
+                        {"Veau jarret", 
+                          {
+                            {"Tendre souple",  60, false, 72 * 60},
+                            {"Tendre defait",  66, true, 72  * 60},
+                            {"Tres defait",  85, false, 8 * 60}
+                          }
+                        },
+                        {"Veau poitrine", 
+                          {
+                            {"Ferme (steak)", 54, true},
+                            {"Tendre souple",  62, false, 5 * 60},
+                            {"Tendre defait",  68, false, 24  * 60},
+                            {"Tres defait",  85, false, 6 * 60}
+                          }
+                        }
                   }
     },
     {"Volailles", {
-      
-                        {"Poulet", 
+                        {"Autruche Filet", 
                           {
-                            {"Tendre", 64, true, 90},
-                            {"Defaut",  45, false, 180}
+                            {"Saignant", 50, true},
+                            {"A Point",  54, false, 137},
+                            {"Rose",  58, false, 30}
                           }
                         },
-                        {"Poulet Ailes", 
+                        {"Caille Cuisse", 
                           {
-                            {"Tendre", 62, true, 720},
-                            {"Defaut",  72, false, 480}
+                            {"Tendre", 60, true, 720},
+                            {"Defaut",  68, false, 180}
                           }
                         },
-                        {"Poulet Filet", 
+                        {"Caille Filet", 
                           {
-                            {"A point", 58, true, 30},
-                            {"Rosé",  61, true, 13},
-                            {"Cuit",  65, false, 2}
+                            {"A point", 50, true, 720},
+                            {"Rosé",  52, false, 315},
+                            {"Cuit",  54, false, 137}
                           }
                         },
                         {"Canard Cuisse", 
@@ -184,18 +319,46 @@ static const s_menu_1  temperature[] =
                             {"Tendre", 88, true, 300}
                           }
                         },
-                        {"Pintade Cuisse", 
+                        {"Coq Filet", 
                           {
-                            {"Tendre", 60, true, 240},
+                            {"Saignant", 50, true},
+                            {"A Point",  52, false, 315},
+                            {"Rose",  58, false, 30}
                           }
                         },
-                        {"Pintade Filet", 
+                         {"Dinde Aile", 
                           {
-                            {"A point", 52, false, 315},
-                            {"Rosé",  54, true, 137},
+                            {"Tendre", 58, true, 720},
+                            {"Defaut",  62, false, 1080}
+                          }
+                        },
+                        {"Dinde Cuisse", 
+                          {
+                            {"Tendre", 62, true, 480},
+                            {"Defaut",  65, false, 120}
+                          }
+                        },
+                        {"Dinde Filet", 
+                          {
+                            {"A point", 54, false, 137},
+                            {"Rosé",  56, true, 35},
                             {"Cuit",  58, false, 30}
                           }
                         },
+                        {"Faisan Filet", 
+                          {
+                            {"A point", 54, false, 35},
+                            {"Rosé",  56, true, 217},
+                            {"Cuit",  58, false, 30}
+                          }
+                        },
+                        {"Oie Filet", 
+                          {
+                            {"Saignant", 50, false},
+                            {"A Point",  52, true, 315},
+                            {"Rose",  55, false, 40}
+                          }
+                        },      
                         {"Pigeon Cuisse", 
                           {
                             {"Tendre", 65, true, 180},
@@ -209,89 +372,58 @@ static const s_menu_1  temperature[] =
                             {"Rose",  58, false, 30}
                           }
                         },
-                        {"Caille Cuisse", 
+                        {"Pintade Cuisse", 
                           {
-                            {"Tendre", 60, true, 720},
-                            {"Defaut",  68, false, 180}
+                            {"Tendre", 60, true, 240},
                           }
                         },
-                        {"Caille Filet", 
+                        {"Pintade Filet", 
                           {
-                            {"A point", 50, true, 720},
-                            {"Rosé",  52, false, 315},
-                            {"Cuit",  54, false, 137}
-                          }
-                        },
-                        {"Coq Filet", 
-                          {
-                            {"Saignant", 50, true},
-                            {"A Point",  52, false, 315},
-                            {"Rose",  58, false, 30}
-                          }
-                        },
-                        {"Dinde Cuisse", 
-                          {
-                            {"Tendre", 62, true, 480},
-                            {"Defaut",  65, false, 120}
-                          }
-                        },
-                        {"Dinde Aile", 
-                          {
-                            {"Tendre", 58, true, 720},
-                            {"Defaut",  62, false, 1080}
-                          }
-                        },
-                        {"Dinde Filet", 
-                          {
-                            {"A point", 54, false, 137},
-                            {"Rosé",  56, true, 35},
+                            {"A point", 52, false, 315},
+                            {"Rosé",  54, true, 137},
                             {"Cuit",  58, false, 30}
                           }
                         },
-                        {"Oie Filet", 
+                        {"Poulet", 
                           {
-                            {"Saignant", 50, false},
-                            {"A Point",  52, true, 315},
-                            {"Rose",  55, false, 40}
+                            {"Tendre", 64, true, 90},
+                            {"Defaut",  45, false, 180}
                           }
                         },
-                        {"Autruche Filet", 
+                        {"Poulet Ailes", 
                           {
-                            {"Saignant", 50, true},
-                            {"A Point",  54, false, 137},
-                            {"Rose",  58, false, 30}
+                            {"Tendre", 62, true, 720},
+                            {"Defaut",  72, false, 480}
                           }
                         },
-                        {"Faisan Filet", 
+                        {"Poulet Filet", 
                           {
-                            {"A point", 54, false, 35},
-                            {"Rosé",  56, true, 217},
-                            {"Cuit",  58, false, 30}
+                            {"A point", 58, true, 30},
+                            {"Rosé",  61, true, 13},
+                            {"Cuit",  65, false, 2}
                           }
-                        },
+                        }                        
                       }
     },
     {"Poisson", {
-                  {"Morue Charbon", 
-                    {
-                      {"A peine cuit", 40, false},
-                      {"Tendre",  45, true},
-                      {"Ferme",  48, true},
-                      {"Defait", 52, true}
-                    }
-                  },
-                  {"Morue", 
-                    {
-                      {"A peine cuit", 38, false},
-                      {"Tendre",  41, true},
-                      {"Ferme",  45, false},
-                      {"Defait", 49, false}
-                    }
-                  },
                   {"Anguille", 
                     {
                       {"Ferme",  54, false},
                       {"Defait", 59, true}
+                    }
+                  },
+                  {"Bar", 
+                    {
+                      {"Tendre",  45, true},
+                      {"Ferme",  48, false},
+                      {"Defait", 50, false}
+                    }
+                  },
+                  {"Colin", 
+                    {
+                      {"Tendre",  44, true},
+                      {"Ferme",  50, false},
+                      {"Defait", 54, false}
                     }
                   },
                   {"Escolier Noir", 
@@ -302,11 +434,11 @@ static const s_menu_1  temperature[] =
                       {"Defait", 50, false}
                     }
                   },
-                  {"Colin", 
+                  {"Esturgeon", 
                     {
-                      {"Tendre",  44, true},
-                      {"Ferme",  50, false},
-                      {"Defait", 54, false}
+                      {"A peine cuit", 46, false},
+                      {"Tendre",  50, false},
+                      {"Ferme",  54, true}
                     }
                   },
                   {"Fletan", 
@@ -332,8 +464,9 @@ static const s_menu_1  temperature[] =
                       {"Defait", 46, false}
                     }
                   },
-                  {"Saint-Pierre", 
+                  {"Lotte", 
                     {
+                      {"A peine cuit", 42, false},
                       {"Tendre",  45, false},
                       {"Ferme",  48, true},
                       {"Defait", 50, false}
@@ -347,12 +480,27 @@ static const s_menu_1  temperature[] =
                       {"Defait", 48, false}
                     }
                   },
-                  {"Lotte", 
+                  {"Morue", 
                     {
-                      {"A peine cuit", 42, false},
-                      {"Tendre",  45, false},
+                      {"A peine cuit", 38, false},
+                      {"Tendre",  41, true},
+                      {"Ferme",  45, false},
+                      {"Defait", 49, false}
+                    }
+                  },
+                  {"Morue Charbon", 
+                    {
+                      {"A peine cuit", 40, false},
+                      {"Tendre",  45, true},
                       {"Ferme",  48, true},
-                      {"Defait", 50, false}
+                      {"Defait", 52, true}
+                    }
+                  },
+                  {"Raie", 
+                    {
+                      {"Tendre",  48, false},
+                      {"Ferme",  52, true},
+                      {"Defait", 54, false}
                     }
                   },
                   {"Rascasse", 
@@ -360,6 +508,20 @@ static const s_menu_1  temperature[] =
                       {"Tendre",  44, false},
                       {"Ferme",  48, false},
                       {"Defait", 52, true}
+                    }
+                  },
+                  {"Rouget", 
+                    {
+                      {"Tendre",  48, false},
+                      {"Ferme",  50, true},
+                      {"Defait", 52, false}
+                    }
+                  },
+                  {"Saint-Pierre", 
+                    {
+                      {"Tendre",  45, false},
+                      {"Ferme",  48, true},
+                      {"Defait", 50, false}
                     }
                   },
                   {"Saumon", 
@@ -378,47 +540,14 @@ static const s_menu_1  temperature[] =
                       {"Defait", 46, false}
                     }
                   },
-                  {"Bar", 
-                    {
-                      {"Tendre",  45, true},
-                      {"Ferme",  48, false},
-                      {"Defait", 50, false}
-                    }
-                  },
-                  {"Raie", 
-                    {
-                      {"Tendre",  48, false},
-                      {"Ferme",  52, true},
-                      {"Defait", 54, false}
-                    }
-                  },
-                  {"Rouget", 
-                    {
-                      {"Tendre",  48, false},
-                      {"Ferme",  50, true},
-                      {"Defait", 52, false}
-                    }
-                  },
+                  
+                  
+                  
                   {"Sole", 
                     {
                       {"Tendre",  42, true},
                       {"Ferme",  45, false},
                       {"Defait", 50, false}
-                    }
-                  },
-                  {"Esturgeon", 
-                    {
-                      {"A peine cuit", 46, false},
-                      {"Tendre",  50, false},
-                      {"Ferme",  54, true}
-                    }
-                  },
-                  {"Truite", 
-                    {
-                      {"A peine cuit", 37, true},
-                      {"Tendre",  40, false},
-                      {"Ferme",  46, false},
-                      {"Defait", 48, false}
                     }
                   },
                   {"Thon Longe", 
@@ -437,6 +566,14 @@ static const s_menu_1  temperature[] =
                       {"Defait", 50, false}
                     }
                   },
+                  {"Truite", 
+                    {
+                      {"A peine cuit", 37, true},
+                      {"Tendre",  40, false},
+                      {"Ferme",  46, false},
+                      {"Defait", 48, false}
+                    }
+                  },
                   {"Turbot", 
                     {
                       {"Tendre",  44, false},
@@ -447,90 +584,7 @@ static const s_menu_1  temperature[] =
                 }
     },
     {"Fruit de mer", {
-                       {"Coque Palourdes", 
-                          {
-                            {"A peine cuit",  48, false, 10},
-                            {"Tendre",  56, true, 8},
-                            {"Ferme", 65, false, 5}
-                          }
-                        },
-                        {"Langoustine", 
-                          {
-                            {"A peine cuit",  48, false, 15},
-                            {"Tendre",  56, true, 12},
-                            {"Ferme", 70, false, 6}
-                          }
-                        },
-                        {"Homard Pinces", 
-                          {
-                            {"A peine cuit",  54, true},
-                            {"Tendre",  60, true},
-                            {"Ferme", 65, false}
-                          }
-                        },
-                        {"Homard Queue", 
-                          {
-                            {"A peine cuit",  46, true},
-                            {"Tendre",  54, true},
-                            {"Ferme", 59, false}
-                          }
-                        },
-                        {"Moules", 
-                          {
-                            {"A peine cuit",  62, false, 10},
-                            {"Tendre",  65, true, 10},
-                            {"Ferme", 68, false, 7}
-                          }
-                        },
-                        {"Huitres", 
-                          {
-                            {"A peine cuit",  45, true, 10},
-                            {"Tendre",  48, false, 10},
-                            {"Ferme", 52, false, 7}
-                          }
-                        },
-                        {"Couteaux", 
-                          {
-                            {"A peine cuit",  45, false, 10},
-                            {"Tendre",  60, true, 10},
-                            {"Ferme", 65, false, 5}
-                          }
-                        },
-                        {"Saint-Jacques", 
-                          {
-                            {"A peine cuit",  42, false},
-                            {"Tendre",  50, true},
-                            {"Ferme", 54, false}
-                          }
-                        },
-                        {"Crevettes", 
-                          {
-                            {"A peine cuit",  48, true},
-                            {"Tendre",  60, true},
-                            {"Ferme", 80, false, 4}
-                          }
-                        },
-                        {"Ormeau", 
-                          {
-                            {"A peine cuit",  45, false, 15},
-                            {"Ferme",  88, false, 480},
-                            {"Tendre Braise", 98, true, 720}
-                          }
-                        },
-                        {"Poulpe", 
-                          {
-                            {"Ferme",  80, false, 180},
-                            {"Tendre Braise", 85, true, 240}
-                          }
-                        },
-                        {"Palourde", 
-                          {
-                            {"A peine cuit",  50, true, 30},
-                            {"Ferme",  65, false, 7},
-                            {"Tendre Braise", 88, false, 90}
-                          }
-                        },
-                        {"Bigorneau", 
+                       {"Bigorneau", 
                           {
                             {"Ferme",  65, false, 15},
                             {"Tendre Braise", 88, true, 300}
@@ -542,15 +596,111 @@ static const s_menu_1  temperature[] =
                             {"Ferme",  65, true, 5},
                             {"Tendre Braise", 64, false, 240}
                           }
+                        },
+                        {"Coque Palourdes", 
+                          {
+                            {"A peine cuit",  48, false, 10},
+                            {"Tendre",  56, true, 8},
+                            {"Ferme", 65, false, 5}
+                          }
+                        },
+                        {"Couteaux", 
+                          {
+                            {"A peine cuit",  45, false, 10},
+                            {"Tendre",  60, true, 10},
+                            {"Ferme", 65, false, 5}
+                          }
+                        },
+                        {"Crevettes", 
+                          {
+                            {"A peine cuit",  48, true},
+                            {"Tendre",  60, true},
+                            {"Ferme", 80, false, 4}
+                          }
+                        },
+                        {"Homard Pinces", 
+                          {
+                            {"A peine cuit",  54, true},
+                            {"Tendre",  60, true},
+                            {"Ferme", 65, false}
+                          }
+                        },
+                        {"Huitres", 
+                          {
+                            {"A peine cuit",  45, true, 10},
+                            {"Tendre",  48, false, 10},
+                            {"Ferme", 52, false, 7}
+                          }
+                        },
+                        {"Langoustine", 
+                          {
+                            {"A peine cuit",  48, false, 15},
+                            {"Tendre",  56, true, 12},
+                            {"Ferme", 70, false, 6}
+                          }
+                        },
+                        
+                        
+                        {"Moules", 
+                          {
+                            {"A peine cuit",  62, false, 10},
+                            {"Tendre",  65, true, 10},
+                            {"Ferme", 68, false, 7}
+                          }
+                        },
+                        {"Ormeau", 
+                          {
+                            {"A peine cuit",  45, false, 15},
+                            {"Ferme",  88, false, 480},
+                            {"Tendre Braise", 98, true, 720}
+                          }
+                        },
+                        {"Palourde", 
+                          {
+                            {"A peine cuit",  50, true, 30},
+                            {"Ferme",  65, false, 7},
+                            {"Tendre Braise", 88, false, 90}
+                          }
+                        },
+                        {"Poulpe", 
+                          {
+                            {"Ferme",  80, false, 180},
+                            {"Tendre Braise", 85, true, 240}
+                          }
+                        },
+                        
+                        {"Saint-Jacques", 
+                          {
+                            {"A peine cuit",  42, false},
+                            {"Tendre",  50, true},
+                            {"Ferme", 54, false}
+                          }
                         }
                      }
     },
     {"Abats et Viceres", {
-                        {"Foie gras canard", 
+                       {"Coeur Veau", 
+                          {
+                            {"Braisee",  80, true, 300}
+                          }
+                       },
+                       {"Crete de coq", 
+                          {
+                            {"Braisee",  85, true, 120}
+                          }
+                       },
+                       {"Foie gras canard", 
                           {
                             {"Saignant", 50, true},
                             {"Rose",  56, true},
                             {"A Point",  60, false},
+                          }
+                        },
+                       {"Foie veau", 
+                          {
+                            {"Saignant", 58, false},
+                            {"Rose",  62, true},
+                            {"A Point",  65, false},
                           }
                         },
                        {"Foie volailles", 
@@ -559,12 +709,22 @@ static const s_menu_1  temperature[] =
                             {"Rose",  56, true},
                             {"A Point",  60, false},
                           }
-                        },                          
-                        {"Foie veau", 
+                        },
+                        {"Gesier Poulet", 
                           {
-                            {"Saignant", 58, false},
-                            {"Rose",  62, true},
-                            {"A Point",  65, false},
+                            {"Braisee",  60, true, 720}
+                          }
+                        },                        
+                        {"Langue Boeuf Veau", 
+                          {
+                            {"Tendre,juteux", 68, true, 720},
+                            {"Braisee",  67, false, 2880}
+                          }
+                        },
+                        {"Langue Canard", 
+                          {
+                            {"Tendre,juteux", 70, false, 480},
+                            {"Braisee",  88, true, 300}
                           }
                         },
                         {"Ris d'agneau", 
@@ -590,39 +750,12 @@ static const s_menu_1  temperature[] =
                           {
                             {"Rose",  70, true, 20}
                           }
-                        },      
-                        {"Langue Boeuf Veau", 
-                          {
-                            {"Tendre,juteux", 68, true, 720},
-                            {"Braisee",  67, false, 2880}
-                          }
-                        },
-                        {"Langue Canard", 
-                          {
-                            {"Tendre,juteux", 70, false, 480},
-                            {"Braisee",  88, true, 300}
-                          }
-                        },
-                        {"Gesier Poulet", 
-                          {
-                            {"Braisee",  60, true, 720}
-                          }
-                        },
-                        {"Coeur Veau", 
-                          {
-                            {"Braisee",  80, true, 300}
-                          }
                         },
                         {"Tripes", 
                           {
                             {"Braisee",  88, true, 120}
                           }
-                        },
-                        {"Crete de coq", 
-                          {
-                            {"Braisee",  85, true, 120}
-                          }
-                        }                       
+                        }                     
                   }
     }
   }
