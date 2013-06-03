@@ -21,7 +21,7 @@ typedef struct {
   int                 minutes;
 } s_menu_3;  
 typedef struct  {
-  char         label[19];
+  char         label[20];
   s_menu_3     menu3[MAX_MENU3];
 } s_menu_2;
 
@@ -167,7 +167,7 @@ static const s_menu_1  temperature[] =
                             {"Tres defait",  88, false, 7 * 60}
                           }
                         },
-                        {"Boeuf cote avec os", 
+                        {"Boeuf cotes avec os", 
                           {
                             {"Ferme (steak)", 56, false, 72 * 60},
                             {"Tendre souple",  58, false, 72 * 60},
@@ -228,7 +228,7 @@ static const s_menu_1  temperature[] =
                             {"Tres defait",  85, false, 1 * 60}
                           }
                         },
-                        {"Porc cote", 
+                        {"Porc cotes", 
                           {
                             {"Tendre souple",  60, true, 48 * 60},
                             {"Tendre defait",  65, false, 48  * 60},

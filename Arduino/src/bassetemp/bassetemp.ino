@@ -1,10 +1,12 @@
 #include <OneWire.h> // Inclusion de la librairie OneWire
 #include <Time.h>
+#define ENCODER_OPTIMIZE_INTERRUPTS //Rotary optimization
 #include <Encoder.h> //Rotary encoder
 #include <Bounce.h> //Button management
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
 
+#include "logo.h"
 #include "menu.h"
 
 /**
@@ -61,7 +63,7 @@ time_t g_chrono_time = now();
 #define PIN_ROTARY1         14
 #define PIN_ROTARY2         15
 #define ENCODER_STEP        0.1 //Add 0.1° each step
-#define ENCODER_MENU_STEP   2   //Increment menu each 4 tick
+#define ENCODER_MENU_STEP   2   //Increment menu each 2 tick
 Encoder g_rotaryEncoder(PIN_ROTARY1, PIN_ROTARY2);
 
 /**
@@ -76,7 +78,7 @@ Bounce buttonMenu = Bounce(PIN_BUTTON_MENU, 10);
 
 /************************************************************************************
   ******
-  ******  Refresh temperature
+  ******  Main loop
   ******
   ***********************************************************************************/
 
@@ -97,8 +99,12 @@ void setup()   {
   display.begin();
   display.setContrast(51);
 
-  display.display(); // show splashscreen
-  delay(2000);
+  //display.display(); // show splashscreen
+  display.clearDisplay();
+  //display.command(PCD8544_DISPLAYCONTROL | PCD8544_DISPLAYNORMAL);
+  display.drawBitmap(0, 0, logo, logox, logoy, BLACK);
+  display.display();
+  delay(3000);
   display.clearDisplay();   // clears the screen and buffer
   display.setTextWrap(false); // Do not wrap text (for scrolling effect)
   
