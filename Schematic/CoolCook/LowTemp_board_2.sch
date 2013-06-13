@@ -8612,8 +8612,8 @@ Source: AVX .. aphvc.pdf</description>
 <part name="AGND2" library="supply1" deviceset="AGND" device=""/>
 <part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 <part name="AGND4" library="supply1" deviceset="AGND" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="050-024X044" value="0,1µF"/>
-<part name="C2" library="rcl" deviceset="C-EU" device="050-024X044" value="0,1µF"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="050-025X075" value="0,1µF"/>
+<part name="C2" library="rcl" deviceset="C-EU" device="050-025X075" value="0,1µF"/>
 <part name="R1" library="resistor" deviceset="R-EU_" device="0207/7" value="10kΩ"/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="0207/7" value="10kΩ"/>
 <part name="AGND6" library="supply1" deviceset="AGND" device=""/>

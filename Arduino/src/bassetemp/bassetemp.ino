@@ -60,8 +60,8 @@ time_t g_chrono_time = now();
 /**
   * Rotary Encoder
   */
-#define PIN_ROTARY1         14
-#define PIN_ROTARY2         15
+#define PIN_ROTARY1         15
+#define PIN_ROTARY2         14
 #define ENCODER_STEP        0.1 //Add 0.1° each step
 #define ENCODER_MENU_STEP   2   //Increment menu each 2 tick
 Encoder g_rotaryEncoder(PIN_ROTARY1, PIN_ROTARY2);
